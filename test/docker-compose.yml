@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
+    ports:
+      - '5432:5432'
+    networks:
+      - fastapi-network  # Use the same network as the FastAPI services for inter-container communication
+
+networks:
+  fastapi-network:
